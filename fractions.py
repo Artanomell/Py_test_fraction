@@ -21,12 +21,18 @@ class fraction:
         return '{}/{}'.format(self.numerator, self.denominator)
 
     def __add__(self, other):
-        common_denominator = fraction._lcm(self, self.denominator, other.denominator)
+        common_denominator = fraction.__lcm(self, self.denominator, other.denominator)
         num1 = int(self.numerator * common_denominator / self.denominator)
         num2 = int(other.numerator * common_denominator / other.denominator)
         return fraction(num1 + num2, common_denominator)
 
-    def _lcm(self, a, b):
+    def __lcm(self, a, b):
+        """
+        Приватный метод нахождения наименьшего общего кратного целых чисел a и b
+        :param a:
+        :param b:
+        :return:
+        """
         m = a * b
         while a != 0 and b != 0:
             if a > b:
@@ -35,9 +41,9 @@ class fraction:
                 b %= a
         return m // (a + b)
 
+#================ main ======================
 
 inst1 = fraction(1, 2)
 inst2 = fraction(2, 3)
 inst3 = inst1 + inst2
 print(inst3)
-
