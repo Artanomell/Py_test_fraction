@@ -16,7 +16,7 @@ print inst3
 class fraction:
     def __init__(self, numerator, denominator):
         if denominator == 0:
-            raise ('Floating by zero')
+            raise ('Divide by zero')
 
         if denominator < 0:
             self.denominator = -1 * denominator
